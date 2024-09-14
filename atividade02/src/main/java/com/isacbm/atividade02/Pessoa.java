@@ -1,32 +1,30 @@
 package com.isacbm.atividade02;
-
 import java.time.LocalDate;
-
+import java.time.Period;
 /**
  * @author Isac B.M - 2K24
  */
-
 public class Pessoa {
     
-    String nome;
-    String cpf;
-    String email;
-    String telefone;
-    LocalDate dataNascimento;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String telefone;
+    private LocalDate dataNascimento;
     
-    public Pessoa(String nome, String cpf, String email, String telefone){
-        this.nome = nome;
-        setCpf(cpf);
-        setEmail(email);
-        setTelefone(telefone);
-        //this.dataNascimento;
+    public Pessoa(String nome, String cpf, String email, String telefone, LocalDate data){
+        this.setNome(nome);
+        this. setCpf(cpf);
+        this.setEmail(email);
+        this.setTelefone(telefone);
+        this.setDataNascimento(data); 
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    private void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -157,7 +155,6 @@ public class Pessoa {
             }
         } 
     }
-
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
@@ -166,8 +163,21 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
     
-    public void exibirDados(){
-        // Mostrar em tela.
+    public int getIdade(){
+        Period periodo = Period.between(this.dataNascimento,LocalDate.now());
+        return periodo.getYears();
     }
-    
+
+    public void exibirDados(){
+        System.out.println(
+                "Ola, seja muito bem-vindo(a) Sr(a) "
+                + this.getNome() + "! Essas sao suas informacoes: \n"
+                 + "Nome: " + this.getNome()
+                + "\nCPF: " + this.getCpf() 
+                + "\nEmail: " + this.getEmail() 
+                + "\nTelefone: " + this.getTelefone() 
+                + "\nData de Nascimento: " + this.getDataNascimento()
+                + "\nSua idade atual: " + this.getIdade() + " Anos"
+        );
+    }
 }
