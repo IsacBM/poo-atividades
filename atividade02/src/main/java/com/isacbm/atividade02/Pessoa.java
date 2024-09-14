@@ -14,7 +14,7 @@ public class Pessoa {
     
     public Pessoa(String nome, String cpf, String email, String telefone, LocalDate data){
         this.setNome(nome);
-        this. setCpf(cpf);
+        this.setCpf(cpf);
         this.setEmail(email);
         this.setTelefone(telefone);
         this.setDataNascimento(data); 
